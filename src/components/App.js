@@ -1,11 +1,7 @@
 import React, { Component, useState } from "react";
 import '../styles/App.css';
-
-
-class App extends Component {
-    render() {
-
-        const [name1, setName1] = useState("");
+function App(){
+    const [name1, setName1] = useState("");
         const [name2, setName2] = useState("");
         const [relationship, setRelationship] = useState("");
         const getNameOne = (event) => {
@@ -71,11 +67,10 @@ class App extends Component {
             setName2('');
             setRelationship('');
         }
-
-
-        return (
-            <div id="main">
-                <input onChange={getNameOne} type="text" data-testid="input1" value={name1} />
+    
+    return(
+        <div id="main">
+        <input onChange={getNameOne} type="text" data-testid="input1" value={name1} />
                 <input onChange={getNameTwo} type="text" data-testid="input2" value={name2} />
                 <button
                     data-testid="calculate_relationship"
@@ -85,11 +80,11 @@ class App extends Component {
                 </button>
                 <button data-testid="clear" onClick={clearInputs}>Clear</button>
                 <h3 data-testid="answer">{relationship}</h3>
-
-            </div>
-        )
-    }
+        </div>
+    )
 }
 
-
 export default App;
+
+
+
