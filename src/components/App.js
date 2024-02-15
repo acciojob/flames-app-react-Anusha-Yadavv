@@ -4,6 +4,10 @@ function App() {
     const [name1, setName1] = useState("");
     const [name2, setName2] = useState("");
     const [relationship, setRelationship] = useState("");
+
+    
+
+    
     const getNameOne = (event) => {
         setName1(event.target.value);
         // console.log("name one",name1);
@@ -18,16 +22,30 @@ function App() {
     const calculateRelationship = () => {
         const name1Lower = name1.toLocaleLowerCase().replaceAll(" ", "");
         const name2Lower = name2.toLocaleLowerCase().replaceAll(" ", "");
+        const name1Map={};
+    const name2Map={};
 
+    for(let char of name1Lower){
+        name1Map[char]=(name1Map[char] || 0)+1
+    }
+
+    for(let char of name2Lower){
+        name2Map[char]=(name2Map[char] || 0)+1
+    }
         const remainingname1 = name1Lower.split("");
         const remainingname1_arr = remainingname1.filter((char) => {
             //   console.log(char);
-            return !name2Lower.includes(char);
+            // return !name2Lower.includes(char);
+            return name2Map[char]? (name2Map[char]--,false):true;
+
+
+            
         });
         console.log("REMAINING NAME ARR", remainingname1_arr);
         const remainingname2 = name2Lower.split("");
         const remainingname2_arr = remainingname2.filter((char) => {
-            return !name1Lower.includes(char);
+            // return !name1Lower.includes(char);
+            return name1Map[char]? (name1Map[char]--,false):true;
         });
         // console.log("REMAINING NAME 2 ARRAY", remainingname2_arr);
 
