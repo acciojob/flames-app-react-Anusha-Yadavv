@@ -70,8 +70,8 @@ function App(){
     
     return(
         <div id="main">
-        <input onChange={getNameOne} type="text" data-testid="input1" value={name1} />
-                <input onChange={getNameTwo} type="text" data-testid="input2" value={name2} />
+        <input onChange={getNameOne} type="text" value={name1} data-testid="input1"/>
+                <input onChange={getNameTwo} type="text" value={name2} data-testid="input2"/>
                 <button
                     data-testid="calculate_relationship"
                     onClick={calculateRelationship}
